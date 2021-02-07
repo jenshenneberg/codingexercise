@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace RulesEngine
 {
@@ -6,7 +7,23 @@ namespace RulesEngine
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var serviceProvider = SetupServices();
+            var engine = serviceProvider.GetRequiredService<IBusinessRulesEngine>();
+            var order = GenerateTestOrder();
+            engine.Run(order);
+        }
+
+        private static Order GenerateTestOrder()
+        {
+            return new Order();
+        }
+
+        private static IServiceProvider SetupServices()
+        {
+            var services = new ServiceCollection();
+            services.AddServices();
+            var provider = services.BuildServiceProvider();
+            return provider;
         }
     }
 }
