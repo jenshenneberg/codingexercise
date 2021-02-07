@@ -11,7 +11,8 @@ namespace RulesEngine.test
             var services = new ServiceCollection();
             services.AddServices();
             var provider = services.BuildServiceProvider();
-            Assert.NotNull(provider);
+            var businessRulesEngine = provider.GetService<IBusinessRulesEngine>();
+            Assert.NotNull(businessRulesEngine);
         }
     }
 }

@@ -1,6 +1,10 @@
 ﻿namespace RulesEngine
 {
-    internal class BusinessRulesEngine
+    internal class BusinessRulesEngine : IBusinessRulesEngine
     {
+        public void Run(Order order)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

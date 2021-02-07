@@ -1,6 +1,6 @@
 ﻿namespace RulesEngine
 {
-    internal interface IBusinessRulesEngine
+    public interface IBusinessRulesEngine
     {
         void Run(Order order);
     }

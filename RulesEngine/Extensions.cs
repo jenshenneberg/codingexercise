@@ -7,7 +7,7 @@ namespace RulesEngine
 
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
-            services.AddSingleton<BusinessRulesEngine>();
+            services.AddSingleton<IBusinessRulesEngine, BusinessRulesEngine>();
             return services;
         }
     }
