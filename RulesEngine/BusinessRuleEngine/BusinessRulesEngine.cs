@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace RulesEngine
+namespace RulesEngine.BusinessRuleEngine
 {
     internal class BusinessRulesEngine : IBusinessRulesEngine
     {

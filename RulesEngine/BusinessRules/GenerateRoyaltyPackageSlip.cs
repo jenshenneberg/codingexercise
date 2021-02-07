@@ -3,7 +3,7 @@
     /// <summary>
     /// If the payment is for a book, create a duplicate packing slip for the royalty department.
     /// </summary>
-    class GenerateRoyaltyPackageSlip : IBusinessRule
+    public class GenerateRoyaltyPackageSlip : IBusinessRule
     {
         private readonly IPackageSystem _packageSystem;
 

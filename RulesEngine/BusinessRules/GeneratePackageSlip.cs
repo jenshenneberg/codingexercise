@@ -3,7 +3,7 @@
     /// <summary>
     /// If the payment is for a physical product, generate a packing slip for shipping.
     /// </summary>
-    class GeneratePackageSlip : IBusinessRule
+    public class GeneratePackageSlip : IBusinessRule
     {
         private readonly IPackageSystem _packageSystem;
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.Extensions.DependencyInjection;
+using RulesEngine.BusinessRuleEngine;
 
 namespace RulesEngine
 {
@@ -9,13 +10,13 @@ namespace RulesEngine
         {
             var serviceProvider = SetupServices();
             var engine = serviceProvider.GetRequiredService<IBusinessRulesEngine>();
-            var order = GenerateTestOrder();
+            var order = GenerateSampleOrder();
             engine.Run(order);
         }
 
-        private static Order GenerateTestOrder()
+        private static SampleOrder GenerateSampleOrder()
         {
-            return new Order();
+            return new SampleOrder();
         }
 
         private static IServiceProvider SetupServices()

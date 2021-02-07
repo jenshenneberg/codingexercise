@@ -1,4 +1,4 @@
-﻿namespace RulesEngine
+﻿namespace RulesEngine.BusinessRuleEngine
 {
     public interface IBusinessRulesEngine
     {

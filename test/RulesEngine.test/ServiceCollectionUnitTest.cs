@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using RulesEngine.BusinessRuleEngine;
 using Xunit;
 
 namespace RulesEngine.test
