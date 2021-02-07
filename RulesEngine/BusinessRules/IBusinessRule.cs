@@ -7,13 +7,13 @@
         /// </summary>
         /// <param name="order"></param>
         /// <returns>true if the business rule applies</returns>
-        bool Applies(Order order);
+        bool Applies(IOrder order);
 
         /// <summary>
         /// Apply the business rule to the order
         /// </summary>
         /// <param name="order"></param>
-        void Apply(Order order);
+        void Apply(IOrder order);
 
     }
 }

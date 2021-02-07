@@ -2,6 +2,6 @@
 {
     public interface IBusinessRulesEngine
     {
-        void Run(Order order);
+        void Run(IOrder order);
     }
 }

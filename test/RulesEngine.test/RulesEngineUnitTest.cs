@@ -6,12 +6,12 @@ namespace RulesEngine.test
 {
     public class RulesEngineUnitTest
     {
-        private ServiceCollection services;
+        private readonly ServiceCollection _services;
 
         public RulesEngineUnitTest()
         {
-            services = new ServiceCollection();
-            services.AddServices();
+            _services = new ServiceCollection();
+            _services.AddServices();
         }
 
         [Theory]
@@ -22,8 +22,8 @@ namespace RulesEngine.test
             var order = new Order();
             var testRule = new Mock<IBusinessRule>();
             testRule.Setup(x => x.Applies(It.IsAny<Order>())).Returns(apply);
-            services.AddSingleton<IBusinessRule>(testRule.Object);
-            var provider = services.BuildServiceProvider();
+            _services.AddSingleton<IBusinessRule>(testRule.Object);
+            var provider = _services.BuildServiceProvider();
             var businessRulesEngine = provider.GetService<IBusinessRulesEngine>();
             businessRulesEngine.Run(order);
             testRule.Verify(x => x.Applies(order));
@@ -36,13 +36,13 @@ namespace RulesEngine.test
             var order = new Order();
             var applicableRule = new Mock<IBusinessRule>();
             applicableRule.Setup(x => x.Applies(It.IsAny<Order>())).Returns(true);
-            services.AddSingleton<IBusinessRule>(applicableRule.Object);
+            _services.AddSingleton<IBusinessRule>(applicableRule.Object);
 
             var nonApplicableRule = new Mock<IBusinessRule>();
             nonApplicableRule.Setup(x => x.Applies(It.IsAny<Order>())).Returns(false);
-            services.AddSingleton<IBusinessRule>(nonApplicableRule.Object);
+            _services.AddSingleton<IBusinessRule>(nonApplicableRule.Object);
 
-            var provider = services.BuildServiceProvider();
+            var provider = _services.BuildServiceProvider();
             var businessRulesEngine = provider.GetService<IBusinessRulesEngine>();
             businessRulesEngine.Run(order);
             applicableRule.Verify(x => x.Applies(order), Times.Once);

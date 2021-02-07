@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using RulesEngine.BusinessRules;
 
 namespace RulesEngine
 {
@@ -8,13 +9,15 @@ namespace RulesEngine
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
             services.AddSingleton<IBusinessRulesEngine, BusinessRulesEngine>();
+            services.AddSingleton<IPackageSystem, PackageSystem>();
+            services.AddBusinessRules();
             return services;
         }
 
 
-        public static IServiceCollection AddBusinessRule(this IServiceCollection services)
+        private static IServiceCollection AddBusinessRules(this IServiceCollection services)
         {
-            services.AddSingleton<IBusinessRulesEngine, BusinessRulesEngine>();
+            services.AddSingleton<IBusinessRule, GeneratePackageSlip>();
             return services;
         }
     }

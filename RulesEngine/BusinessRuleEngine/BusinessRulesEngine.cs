@@ -12,7 +12,7 @@ namespace RulesEngine
             _businessRules = businessRules;
         }
 
-        public void Run(Order order)
+        public void Run(IOrder order)
         {
             var applicableBusinessRules = _businessRules.Where(x => x.Applies(order));
             foreach (var rule in applicableBusinessRules)
