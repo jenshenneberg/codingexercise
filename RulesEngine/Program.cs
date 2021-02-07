@@ -16,7 +16,7 @@ namespace RulesEngine
 
         private static SampleOrder GenerateSampleOrder()
         {
-            return new SampleOrder();
+            return new SampleOrder() { ContainsBook = true, IsMembershipUpgrade = true };
         }
 
         private static IServiceProvider SetupServices()
