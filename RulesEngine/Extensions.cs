@@ -10,5 +10,12 @@ namespace RulesEngine
             services.AddSingleton<IBusinessRulesEngine, BusinessRulesEngine>();
             return services;
         }
+
+
+        public static IServiceCollection AddBusinessRule(this IServiceCollection services)
+        {
+            services.AddSingleton<IBusinessRulesEngine, BusinessRulesEngine>();
+            return services;
+        }
     }
 }
